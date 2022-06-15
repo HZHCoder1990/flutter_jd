@@ -13,11 +13,19 @@ class IndexPage extends StatefulWidget {
 }
 
 class _IndexPageState extends State<IndexPage> {
+
+  int _currentIndex = 0;
+  @override
+  void initState() {
+    super.initState();
+
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(
-        index: 0,
+        index: _currentIndex,
         children: const [
           HomePage(),
           CategoryPage(),
@@ -27,12 +35,18 @@ class _IndexPageState extends State<IndexPage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
         items: const [
            BottomNavigationBarItem(icon: Icon(Icons.home), label: "首页"),
            BottomNavigationBarItem(icon: Icon(Icons.category), label: "分类"),
            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: "购物车"),
            BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: "我的")
         ],
+        onTap: (index){
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
     );
   }
