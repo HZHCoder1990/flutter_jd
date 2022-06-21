@@ -13,8 +13,7 @@ class HomePageProvider with ChangeNotifier {
     void loadHomePageData() {
       isLoading = true;
       isError = false;
-
-      Request.requestData(API.HomeAPI).then((res) {
+      Request.requestData(API.homeApi).then((res) {
         isLoading = false;
          if (res.code == 200) {
            model = HomePageModel.fromJson(res.data);
