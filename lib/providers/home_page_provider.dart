@@ -16,6 +16,7 @@ class HomePageProvider with ChangeNotifier {
       Request.requestData(API.homeApi).then((res) {
         isLoading = false;
          if (res.code == 200) {
+          // 转model
            model = HomePageModel.fromJson(res.data);
          }
          notifyListeners();

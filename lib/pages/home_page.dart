@@ -97,7 +97,6 @@ class _HomePageState extends State<HomePage> {
                        height: 85,
                     ),
                     Text("${model?.quicks?[index].price}", style: const TextStyle(color: Colors.red, fontSize: 16.0),)
-
                   ],
                 ),
               );
